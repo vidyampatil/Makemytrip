@@ -1,0 +1,40 @@
+{
+  "flights": [
+    {
+      "from": "Delhi",
+      "to": "Mumbai",
+      "dapartDate": "2022-10-21",
+      "returnDate": "2022-10-21",
+      "price": " 5809",
+      "traveller": "10",
+      "flightimg": "gofirst.png",
+      "stop": "Non-Stop",
+      "distance": "02:16",
+      "id": 1
+    },
+    {
+      "from": "Singapore ",
+      "to": "Mumbai",
+      "dapartDate": "2022-10-21",
+      "returnDate": "2022-10-22",
+      "price": "7773",
+      "traveller": "2",
+      "flightimg": "Singapore Airlines.png",
+      "stop": "1Stop",
+      "distance": "02:45",
+      "id": 2
+    },
+    {
+      "from": "Hyderabad",
+      "to": "Bengaluru International Airport",
+      "dapartDate": "2022-10-21",
+      "returnDate": "2022-10-21",
+      "price": "7890",
+      "traveller": "3",
+      "flightimg": "airindia.png",
+      "stop": "2+stops",
+      "distance": "03:49",
+      "id": 3
+    }
+  ]
+}

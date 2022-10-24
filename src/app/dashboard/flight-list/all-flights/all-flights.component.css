@@ -1,0 +1,16 @@
+td{
+    color:#111 !important;
+}
+
+.modal-content {
+    background-color: #111 !important;
+  }
+  
+  .modal-header .btn-close {
+    color: #fff !important;
+  }
+  
+  .modal-dialog {
+    margin-top: 3% !important;
+  }
+  

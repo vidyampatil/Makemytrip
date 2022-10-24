@@ -1,0 +1,230 @@
+<div class="wrapper">
+    <section>
+        <div class="content listing-content">
+            <div class="in-content-wrapper">
+                <div class="row no-gutters">
+
+                    <div class="col">
+                        <div class="heading-messages">
+                            <h3 style="color:#fff;">Flight Listing</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="breadcrumb">
+                            <a routerLink="/booking" class="text-danger">Go to dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="row no-gutters">
+                        <div class="col text-left">
+                            <div class="add-new">
+                                <a routerLink="/flight-create">Add New<i class="fas fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                            width="100%" style="background-color:#e7e5e5;color:#111">
+                            <thead>
+                                <tr>
+                                    <th class="th-sm">Id
+
+                                    </th>
+                                    <th class="th-sm">Airlines
+
+                                    </th>
+                                    <th class="th-sm">From
+
+                                    </th>
+                                    <th class="th-sm">To
+
+                                    </th>
+                                    <th class="th-sm">Depart Date
+
+                                    </th>
+                                    <th class="th-sm">Return Date
+
+                                    </th>
+                                    <th class="th-sm">Price
+
+                                    </th>
+                                    <th class="th-sm">Travellers
+
+                                    </th>
+                                    <th class="th-sm">Stop
+
+                                    </th>
+                                    <th class="th-sm">Distance
+
+                                    </th>
+                                    <th class="th-sm">Action
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
+                                <tr *ngFor="let list of flights">
+                                    <td>{{list.id}}</td>
+                                    <td><img src="assets\flights\{{list.flightimg}}"></td>
+                                    <td>{{list.from}}</td>
+                                    <td>{{list.to}}</td>
+                                    <td>{{list.dapartDate}}</td>
+                                    <td>{{list.returnDate}}</td>
+                                    <td>{{list.price}}</td>
+                                    <td>{{list.traveller}}</td>
+                                    <td>{{list.stop}}</td>
+                                    <td>{{list.distance}}</td>
+                                    <td>
+                                        <a (click)="editFlight(list)" data-bs-toggle="modal" data-bs-target="#editmodal"><i
+                                                class="fas fa-edit"
+                                                style="color:#111;background-color:transparent;"></i></a>
+                                        <a (click)="deleteflight(list)"><i class="fas fa-trash-alt"
+                                                style="color:#111;background-color:transparent;"></i></a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+   <!-- Edit Flight Modal Start -->
+   <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="editmodalLabel" aria-hidden="true"
+   style="z-index:10000;">
+
+   <div class="modal-dialog -dialog-centered modal-dialog-scrollable modal-xl">
+       <div class="modal-content">
+           <div class="modal-header">
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body" style="margin-top:-32px;">
+            <div class="hotel-listing-form">
+                <form class="text-center" [formGroup]="createFlightForm" novalidate>
+                    <div class="form-row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="inputGroupSelect07" class="">From:</label>
+                                <input type="text" class="form-control" formControlName="from" required
+                                    id="inputGroupSelect07">
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="inputGroupSelect07" class="">To:</label>
+                                <input type="text" class="form-control" formControlName="to" required
+                                    id="inputGroupSelect07">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="inputGroupSelect07" class="">Depart Date:</label>
+                                <input type="date" class="form-control" formControlName="dapartDate" required
+                                    id="inputGroupSelect07">
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="inputGroupSelect07" class="">Return Date:</label>
+                                <input type="date" class="form-control" formControlName="returnDate" required
+                                    id="inputGroupSelect07">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="inputGroupSelect05" class="">Price:</label>
+                                <input type="text" class="form-control" formControlName="price" required
+                                    id="inputGroupSelect05">
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="inputGroupSelect06" class="">Traveller(s):</label>
+                                    <input type="text" class="form-control" formControlName="traveller" required
+                                        id="inputGroupSelect06">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect00">Stops
+                                            </label>
+                                    </div>
+                                    <select class="custom-select" id="inputGroupSelect00" formControlName="stop">
+                                        <option selected>Select stops</option>
+                                        <option  *ngFor="let flight of flightsarray;let i=index">{{flight}}</option>
+                                        
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="inputGroupSelect06" class="">Time:</label>
+                                    <input type="time" class="form-control" formControlName="distance" required
+                                        id="inputGroupSelect06" formControlName="distance">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div action="" class="dropzone needsclick dz-clickable" id="demo-upload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div class="dz-message needsclick">
+                            <p>
+                                <input type="file" id="profile" #fileInput>
+                            </p>
+                            <span class="note needsclick">(This is just a demo dropzone. Selected files are
+                                <strong>not</strong> actually uploaded.)</span>
+                        </div>
+                    </div>
+
+
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <button type="submit" class="btn"  [disabled]="diableupdate" (click)="updatevalue()">Update value</button>
+                        </li>
+                    </ul>
+
+                </form>
+            </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<!-- Edit Flight Modal End -->
+
+
+<script src="../../../admin/js/jquery-3.3.1.min.js"></script>
+<script src="../../../admin/js/popper.min.js"></script>
+
+
+<script src="../../../js/bootstrap.min4.2.1.js"></script>
+
+<script src="../../../admin/js/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
+<script src="../../../js/customscriptfile.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

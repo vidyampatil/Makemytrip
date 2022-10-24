@@ -1,0 +1,149 @@
+<section style="background-color:#2c3e50;">
+	<div class="content add-details">
+		<div class="in-content-wrapper">
+			<div class="row no-gutters">
+
+				<div class="col">
+					<div class="heading-messages">
+						<h3 style="color:#fff;">Create Flight</h3>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="breadcrumb" style="margin:30px 4px;">
+						<a routerLink="/booking" class="text-danger">Go to dashboard</a>
+					</div>
+				</div>
+			</div>
+			<div class="box" style="background-color:#475c72 !important;">
+
+				<div class="row">
+					<div class="col">
+						<div class="details-text">
+							<h4>Add Details</h4>
+						</div>
+					</div>
+				</div>
+				<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Success!</strong> Your data has been submitted successfully.!
+					<button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="hotel-listing-form">
+					<form class="text-center" [formGroup]="createFlightForm" novalidate>
+						<div class="form-row">
+							<div class="col-md">
+								<div class="form-group">
+									<label for="inputGroupSelect07" class="">From:</label>
+									<input type="text" class="form-control" formControlName="from" required
+										id="inputGroupSelect07">
+								</div>
+							</div>
+							<div class="col-md">
+								<div class="form-group">
+									<label for="inputGroupSelect07" class="">To:</label>
+									<input type="text" class="form-control" formControlName="to" required
+										id="inputGroupSelect07">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md">
+								<div class="form-group">
+									<label for="inputGroupSelect07" class="">Depart Date:</label>
+									<input type="date" class="form-control" formControlName="dapartDate" required
+										id="inputGroupSelect07">
+								</div>
+							</div>
+							<div class="col-md">
+								<div class="form-group">
+									<label for="inputGroupSelect07" class="">Return Date:</label>
+									<input type="date" class="form-control" formControlName="returnDate" required
+										id="inputGroupSelect07">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md">
+								<div class="form-group">
+									<label for="inputGroupSelect05" class="">Price:</label>
+									<input type="text" class="form-control" formControlName="price" required
+										id="inputGroupSelect05">
+								</div>
+							</div>
+							<div class="col-md">
+								<div class="form-group">
+									<div class="form-group">
+										<label for="inputGroupSelect06" class="">Traveller(s):</label>
+										<input type="text" class="form-control" formControlName="traveller" required
+											id="inputGroupSelect06">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="col-md">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="inputGroupSelect00">Stops
+												</label>
+										</div>
+										<select class="custom-select" id="inputGroupSelect00" formControlName="stop">
+											<option selected>Select stops</option>
+											<option  *ngFor="let flight of flightsarray;let i=index">{{flight}}</option>
+											
+										</select>
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-md">
+								<div class="form-group">
+									<div class="form-group">
+										<label for="inputGroupSelect06" class="">Time:</label>
+										<input type="time" class="form-control" formControlName="distance" required
+											id="inputGroupSelect06" formControlName="distance">
+									</div>
+								</div>
+							</div>
+						</div>
+                       
+						<div action="" class="dropzone needsclick dz-clickable" id="demo-upload">
+							<i class="fas fa-cloud-upload-alt"></i>
+							<div class="dz-message needsclick">
+								<p>
+									<input type="file" id="profile" #fileInput>
+								</p>
+								<span class="note needsclick">(This is just a demo dropzone. Selected files are
+									<strong>not</strong> actually uploaded.)</span>
+							</div>
+						</div>
+
+
+						<ul class="list-inline">
+							<li class="list-inline-item">
+								<button type="submit" class="btn" (click)="submitFlightCreateForm()">Submit</button>
+							</li>
+						</ul>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<script src="../../../admin/js/jquery-3.3.1.min.js"></script>
+<script src="../../../admin/js/popper.min.js"></script>
+
+
+<script src="../../../js/bootstrap.min4.2.1.js"></script>
+
+<script src="../../../admin/js/vendors/dropzone-5.5.0/dist/min/dropzone.min.js"></script>
+<script src="../../../js/customscriptfile.js"></script>
+

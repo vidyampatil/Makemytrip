@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+.alert-success{
+    width: 422px;
+      height: 71px;
+      /* padding: 15px; */
+      /* padding: 9px; */
+      margin-top: 10px;
+      float: right;
+      font-size: 14px;
+      background: #00000138;
+      border: none;
+      color: #198754;
+  }
+  
+  [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    border: none;
+    background: #a71212c7;
+  }
+
+  .swal2-container.swal2-center>.swal2-popup{
+    color: #1fdf4b;
+    background: #000;
+  }
+
+  .swal2-styled.swal2-confirm{
+    background-color:#ff3333 !important;
+    border:none;
+  }
+
+  .swal2-styled.swal2-confirm:focus{
+    box-shadow:none !important;
+  }
